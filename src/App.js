@@ -1,11 +1,13 @@
 import React from 'react'
 import Navbar from './components/navbar'
 import { makeStyles } from '@material-ui/core/styles';
-import { Paper, Grid, Container, Avatar, Typography } from '@material-ui/core';
-import { Name, Title, aboutMeDescription } from './assets/data';
+import { Paper, Grid, Container, Avatar, Typography, Button } from '@material-ui/core';
+import { Name, Title, Email, aboutMeDescription } from './assets/data';
 import { Facebook, LinkedIn, Twitter } from '@material-ui/icons';
 import GitHubIcon from '@material-ui/icons/GitHub';
+import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import {FacebookLink, GithubLink, LinkedInLink, TwitterLink} from './assets/socialLinks';
+import Skills from './components/skills'
 import './App.css';
 
 const useStyles = makeStyles((theme) => ({
@@ -63,7 +65,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <div>
+      <div style = {{background : "inherit"}}>
         <Container maxWidth="lg">
           <div style={{ marginTop: 20 }}>
             <Avatar alt={Name} style={{ width: 200, height: 200, margin: "auto" }} src="/image.jpg" />
@@ -85,8 +87,9 @@ function App() {
             <a href={GithubLink} style = {{color : "inherit"}}>
               <GitHubIcon fontSize="large" />
             </a>
-
           </div>
+          <Button color="inherit" style = {{marginTop : 20}} variant="outlined" endIcon={<MailOutlineIcon />} onClick = {() => window.location = `mailto:${Email}`}>Let's Chat Now !</Button>
+          <Skills />
         </Container>
       </div>
     </div>
